@@ -74,8 +74,8 @@ class Planets(db.Model):
         return output
     
 
-class Characters(db.Model):
-    __tablename__ = 'characters'
+class People(db.Model):
+    __tablename__ = 'people'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128))
     height = db.Column(db.Integer)
@@ -89,7 +89,7 @@ class Characters(db.Model):
     homeworld = db.relationship('Planets', uselist=False, backref=db.backref('residents',uselist=True))
 
     def __repr__(self):
-        return f'<Characters {self.id}>' 
+        return f'<People {self.id}>' 
     
     def serialize(self):
         return {
